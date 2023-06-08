@@ -12,7 +12,7 @@ router.get("/student/:id", function (req, res) {
   const id = req.sanitize(req.params.id);
   let sql = "SELECT * FROM tbl_student WHERE ID = ?";
   db.query(sql,[id], function (err, rs) {
-    res.json({ data: rs });
+    res.json(rs[0]);
   });
 });
 
